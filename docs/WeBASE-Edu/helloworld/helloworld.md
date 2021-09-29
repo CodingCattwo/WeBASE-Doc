@@ -85,16 +85,17 @@ contract HelloWorld {
 ```
 
 部署前，查看块高为0。
+
 ![](../../../images/WeBASE-Edu/helloworld/block_0.png)
 
 合约IDE中创建合约，点击“编译”按钮编译合约，点击“部署”按钮部署合约。若不存在私钥用户，则在“合约管理-测试用户”中创建一个新的私钥用户。
-
 
 ![](../../../images/WeBASE-Edu/helloworld/deploy.png)
 
 部署后，合约IDE中下方将显示合约的地址。
 
 部署后，查看块高为1，部署合约的操作产生了一个新区块。
+
 ![](../../../images/WeBASE-Edu/helloworld/block_1.png)
 
 #### 示例2
@@ -103,15 +104,19 @@ contract HelloWorld {
 ```
 
 调用前，查看块高为1。
+
 ![](../../../images/WeBASE-Edu/helloworld/block_1.png)
 
 点击合约调用，选中“get”方法，点击“确定”进行调用
+
 ![](../../../images/WeBASE-Edu/helloworld/getter.png)
 
 “get”方法返回了合约的string值
+
 ![](../../../images/WeBASE-Edu/helloworld/getter_result.png)
 
 调用“get”方法后，查看块高为1。由于“get”方法是`view`或`constant`或`pure`方法，即只查询交易，操作未产生新区块。
+
 ![](../../../images/WeBASE-Edu/helloworld/block_1.png)
 
 #### 示例3
@@ -123,16 +128,21 @@ contract HelloWorld {
 ```
 
 调用前，查看块高为1。
+
 ![](../../../images/WeBASE-Edu/helloworld/block_1.png)
 
 点击合约调用，选中“set”方法，选中一个私钥用户（默认会自动选中一个），在输入框中填入参数“123”，点击“确定”进行调用。
+
 ![](../../../images/WeBASE-Edu/helloworld/setter.png)
 
 “set”方法修改了链上的值，返回了一个交易回执，交易回执中状态为“0x0”代表交易成功了。
+
 ![](../../../images/WeBASE-Edu/helloworld/setter_result.png)
 
 同样的方法调用“get”方法，返回了“123”，代表合约中保存的string值为“123”，刚才的“set”操作成功了。
+
 ![](../../../images/WeBASE-Edu/helloworld/get_after_set.png)
 
 调用“set”方法后，查看块高为2。由于“set”会修改合约中的值，即修改链上账本，会产生一笔交易并返回交易回执，因此产生了一个新区块。
+
 ![](../../../images/WeBASE-Edu/helloworld/block_2.png)
